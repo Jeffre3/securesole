@@ -1,0 +1,11 @@
+version: 0.0
+os: linux
+files:
+  - source: /    # This copies everything from the repository
+    destination: /var/www/myapp  # This is where files will be copied on the EC2 instance
+
+hooks:
+  AfterInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
